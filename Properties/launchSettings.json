@@ -28,7 +28,7 @@
     },
     "dotnet": {
       "commandName": "Project",
-      "hotReloadProfile": "aspnetcore"
+      "hotReloadProfile": "blazorwasm"
     }
   }
 }
