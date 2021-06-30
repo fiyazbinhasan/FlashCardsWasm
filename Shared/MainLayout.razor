@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider />
+<MudThemeProvider Theme="_customTheme" />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
@@ -30,4 +30,22 @@
     {
         _drawerOpen = !_drawerOpen;
     }
+
+    readonly MudTheme _customTheme = new MudTheme()
+    {
+        Palette = new Palette()
+        {
+            Primary = "#de5c9d",
+            Secondary = "#0d6efd",
+            AppbarBackground = "#6f42c1",
+            Error = "#dc3545",
+            Success = "#198754",
+            Info = "#0d6efd"
+        },
+
+        LayoutProperties = new LayoutProperties()
+        {
+            DrawerWidthLeft = "320px"
+        }
+    };
 }
