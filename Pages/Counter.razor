@@ -1,9 +1,14 @@
 ﻿@page "/counter"
 
+@using Fluxor
+@using FlashCardsWasm.Store.CounterUseCase
+@inject IState<CounterState> _counterState
+@inject IDispatcher _dispatcher
+
 <MudGrid Class="mt-2">
     <MudItem xs="12" sm="12" md="12">
         <MudText Typo="Typo.h3">Counter</MudText>
-        <MudText Typo="Typo.subtitle1">Current count: @currentCount</MudText>
+        <MudText Typo="Typo.subtitle1">Current count: @_counterState.Value.Count</MudText>
     </MudItem>
     <MudItem xs="12" sm="12" md="12">
         <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="IncrementCount">Click me</MudButton>
@@ -11,10 +16,8 @@
 </MudGrid>
 
 @code {
-    private int currentCount = 0;
-
     private void IncrementCount()
     {
-        currentCount++;
+        _dispatcher.Dispatch(new IncrementCounterAction());
     }
 }
